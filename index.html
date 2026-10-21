@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#0d0f12">
+    <title>Pixel Arena Survivor</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Aviso: aparece só em telemóveis na vertical -->
+    <div id="rotate-overlay">
+        <div id="rotate-icon">&#128241;</div>
+        <p>Por favor, rode o seu telemóvel para a horizontal</p>
+    </div>
+
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Joystick virtual (aparece onde o dedo toca) -->
+        <div id="joy-base" class="hidden"><div id="joy-knob"></div></div>
+
+        <!-- HUD -->
+        <div id="hud" class="hidden">
+            <div class="hud-item"><small>Nível</small><span id="level-display">1</span></div>
+            <div class="hud-item"><small>Abates</small><span id="kills-display">0</span></div>
+            <div class="hud-item"><small>Tempo</small><span id="time-display">00:00</span></div>
+            <div class="hud-item"><small>Moedas</small><span id="coins-display">0</span></div>
+        </div>
+        <button id="pause-btn" class="hidden" aria-label="Pausar">II</button>
+        <button id="mute-btn" aria-label="Ligar ou desligar o som">&#128266;</button>
+
+        <!-- Barras de XP e Vida -->
+        <div id="xp-bar-container" class="hidden"><div id="xp-bar-fill"></div></div>
+        <div id="health-bar-container" class="hidden">
+            <div id="health-bar-fill"></div>
+            <span id="health-text">100/100</span>
+        </div>
+
+        <!-- Tela inicial -->
+        <div id="start-screen" class="overlay">
+            <h1>PIXEL ARENA SURVIVOR</h1>
+            <p>Arraste o dedo no ecrã para mover.<br>No computador: <b>WASD</b> ou <b>Setas</b>.</p>
+            <p>O ataque é automático!</p>
+            <p>Moedas guardadas: <b id="total-coins">0</b></p>
+            <p>Melhor tempo: <b id="best-time">00:00</b></p>
+            <div class="btn-row">
+                <button id="start-btn">JOGAR</button>
+                <button id="shop-btn" class="secondary">LOJA</button>
+            </div>
+        </div>
+
+        <!-- Loja de upgrades permanentes -->
+        <div id="shop-screen" class="overlay hidden">
+            <h2>LOJA DE UPGRADES</h2>
+            <p>Moedas: <b id="shop-coins">0</b></p>
+            <div id="shop-items"></div>
+            <button id="shop-back-btn" class="secondary">VOLTAR</button>
+        </div>
+
+        <!-- Pausa -->
+        <div id="pause-screen" class="overlay hidden">
+            <h2>PAUSA</h2>
+            <p>Toque em Continuar ou prima P / Esc.</p>
+            <div class="btn-row">
+                <button id="resume-btn">CONTINUAR</button>
+                <button id="quit-btn" class="secondary">SAIR PARA O MENU</button>
+            </div>
+        </div>
+
+        <!-- Upgrade ao subir de nível -->
+        <div id="upgrade-screen" class="overlay hidden">
+            <h2>NÍVEL ALCANÇADO!</h2>
+            <p>Escolha um upgrade:</p>
+            <div id="upgrade-options"></div>
+        </div>
+
+        <!-- Fim de jogo -->
+        <div id="game-over-screen" class="overlay hidden">
+            <h1 class="danger">FIM DE JOGO</h1>
+            <p>Sobreviveu: <b id="final-time">00:00</b></p>
+            <p>Inimigos derrotados: <b id="final-kills">0</b></p>
+            <p>Moedas ganhas: <b id="final-coins">0</b></p>
+            <div class="btn-row">
+                <button id="restart-btn">JOGAR NOVAMENTE</button>
+                <button id="menu-btn" class="secondary">MENU / LOJA</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/particle.js"></script>
+    <script src="js/weapon.js"></script>
+    <script src="js/enemy.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
